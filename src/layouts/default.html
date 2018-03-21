@@ -8,10 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foundation for Sites</title>
     <link rel="stylesheet" href="{{root}}assets/css/app.css">
-    <script>
-        FontAwesomeConfig = { searchPseudoElements: true };
-    </script>
-    <script defer src="{{root}}assets/js/fontawesome-all.min.js"></script>
 
   </head>
   <body>
@@ -35,7 +31,7 @@
                   <div class="title-bar-title">Menu</div>
                 </div>
                 
-                <nav id="main-nav" class="main-navigation">
+                <nav id="main-nav" class="main-navigation" data-animate="menu-in menu-out">
                   <li><a href="index.html">Home</a></li>
                   <li><a href="#">About Us</a></li>
                   <li><a href="#">Process</a></li>
@@ -57,6 +53,29 @@
 
     {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
     {{> body}}
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-box">
+            <h3> Locations </h3>
+            <p>44 Shirley Ave.</p>
+            <p>West Chicago, IL 60185</p>
+          </div>
+          <div class="footer-box">
+            <h3> Reservations </h3>
+            <p>Call us:</p>
+            <p>202-555-0126</p>
+          </div>
+          <div class="footer-box">
+            <h3> Opening Table </h3>
+            <p>Fri - Sat 09:00 - 24:00</p>
+            <p>Sunday - Closed</p>
+          </div>
+        </div><!--footer-content-->
+      </div><!--.container-->
+      <p class="copyright">All Rights Reserved The Coffee Shop 2017.</p>
+    </footer>
 
     <script src="{{root}}assets/js/app.js"></script>
   </body>

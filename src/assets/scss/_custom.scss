@@ -47,7 +47,7 @@ $bellefair: 'Bellefair', serif;
         }
 
         .bottom-section {
-            @include margin(1);
+            @include margin(3);
             @include breakpoint(medium) {
                 height:rem-calc(230);
                 @include flex();
@@ -94,19 +94,19 @@ $bellefair: 'Bellefair', serif;
                 font-family: "Font Awesome 5 Brands";
                 font-size: rem-calc(30);
                 color: $white;
-                -webkit-font-smoothing: antialiasing;
+                -webkit-font-smoothing: antialiased;
                 content: '\f09a';
             }
-            &[href*="facebook.com"]::before {display: none; content: "\f09a";}
-            &[href*="twitter.com"]::before {display: none; content: "\f099";}
-            &[href*="instagram.com"]::before {display: none; content: "\f16d";}
-            &[href*="youtube.com"]::before {display: none; content: "\f167";}
+            &[href*="facebook.com"]::before {content: "\f09a";}
+            &[href*="twitter.com"]::before {content: "\f099";}
+            &[href*="instagram.com"]::before {content: "\f16d";}
+            &[href*="youtube.com"]::before {content: "\f167";}
         }
     }
 
-.title-bar {
-    background-color: darken($primary-color, 10);
-}
+    .title-bar {
+        background-color: darken($primary-color, 10);
+    }
 
     .main-navigation {
         @include menu-base();
@@ -130,5 +130,52 @@ $bellefair: 'Bellefair', serif;
                 }
             }
         }
+    }
+}
+
+//Animation Menus
+
+.menu-in {
+    @include mui-zoom(in, .1, 1);
+}
+.menu-out {
+    @include mui-zoom(out, 1, .1, true, .5s, ease)
+}
+
+//footer
+.site-footer {
+    background-color: $primary-color;
+    .container {
+        background-color: $white;
+        .footer-content {
+            @include xy-grid();
+            @include padding(2,2,4,2);
+            .footer-box {
+                @include xy-cell();
+                @include breakpoint(small only){
+                    margin-bottom: rem-calc(10);
+                }
+                @include breakpoint(medium) {
+                    @include xy-cell(4);
+                }
+                text-align: center;
+                h3 {
+                    color: $secondary-color;
+                    font-family: $bellefair;
+                    @include text-transform(uppercase);
+                }
+                p {
+                    margin:0;
+                }
+            }
+        }
+    }
+    .copyright {
+        margin:0;
+        color: $white;
+        text-align:center;
+        font-size: rem-calc(18);
+        @include padding(1, null, 1 ,null);
+        @include font-bold(900);
     }
 }

@@ -52,5 +52,7 @@
 
 @include motion-ui-transitions;
 @include motion-ui-animations;
-
+@import 'fontawesome/fontawesome.scss';
+@import 'fontawesome/fa-brands.scss';
+@import 'fontawesome/fa-regular.scss';
 @import 'custom';
