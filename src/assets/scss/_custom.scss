@@ -26,7 +26,7 @@ $bellefair: 'Bellefair', serif;
     }
 
     .header-content {
-
+        padding-top:rem-calc(30);
         .top-section {
             @include xy-grid;
             @include flex-align(center,top);
@@ -47,7 +47,12 @@ $bellefair: 'Bellefair', serif;
         }
 
         .bottom-section {
-
+            @include margin(1);
+            @include breakpoint(medium) {
+                height:rem-calc(230);
+                @include flex();
+                @include flex-align(center,bottom);
+            }
             .slogan {
                 color: $white;
                 position: relative;
@@ -75,12 +80,46 @@ $bellefair: 'Bellefair', serif;
     @include breakpoint(medium) {
         @include xy-cell(75%);
     }
+    //social menu
+    .social-menu {
+        @include menu-base();
+        @include flex-align(center, middle);
+        @include breakpoint(medium) {
+            @include flex-align(right,middle);
+        }
+
+        a {
+            &:before {
+                display:inline-block;
+                font-family: "Font Awesome 5 Brands";
+                font-size: rem-calc(30);
+                color: $white;
+                -webkit-font-smoothing: antialiasing;
+                content: '\f09a';
+            }
+            &[href*="facebook.com"]::before {display: none; content: "\f09a";}
+            &[href*="twitter.com"]::before {display: none; content: "\f099";}
+            &[href*="instagram.com"]::before {display: none; content: "\f16d";}
+            &[href*="youtube.com"]::before {display: none; content: "\f167";}
+        }
+    }
+
+.title-bar {
+    background-color: darken($primary-color, 10);
+}
 
     .main-navigation {
         @include menu-base();
         @include flex-align(right,middle);
+        @include breakpoint(small only) {
+            background-color: $primary-color;
+        }
 
         li {
+            @include breakpoint(small only) {
+                width: 100%;
+                text-align: center;
+            }
             a{
                 @include text-transform(uppercase);
                 @include font-bold(700);

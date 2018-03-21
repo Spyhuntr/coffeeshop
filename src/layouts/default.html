@@ -8,9 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foundation for Sites</title>
     <link rel="stylesheet" href="{{root}}assets/css/app.css">
+    <script>
+        FontAwesomeConfig = { searchPseudoElements: true };
+    </script>
+    <script defer src="{{root}}assets/js/fontawesome-all.min.js"></script>
+
   </head>
   <body>
-
     <header class ="site-header">
       <div class="container">
         <div class="header-content">
@@ -21,12 +25,16 @@
             </div><!--.logo-->
             <div class="menus">
                 <nav class="social-menu">
-                  <a href="http://facebook.com">Facebook</a>
-                  <a href="http://twitter.com">Twitter</a>
-                  <a href="http://Instagram.com">Instagram</a>
-                  <a href="http://youtube.com">YouTube</a>
+                  <a href="http://facebook.com"><span class="hide">Facebook</span></a>
+                  <a href="http://twitter.com"><span class="hide">Twitter</span></a>
+                  <a href="http://instagram.com"><span class="hide">Instagram</span></a>
+                  <a href="http://youtube.com"><span class="hide">YouTube</span></a>
                 </nav>
-
+                <div class = "title-bar" data-responsive-toggle="main-nav" data-hide-for="medium">
+                  <button class="menu-icon" type="button" data-toggle></button>
+                  <div class="title-bar-title">Menu</div>
+                </div>
+                
                 <nav id="main-nav" class="main-navigation">
                   <li><a href="index.html">Home</a></li>
                   <li><a href="#">About Us</a></li>
