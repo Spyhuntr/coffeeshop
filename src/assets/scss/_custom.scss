@@ -44,6 +44,12 @@ $bellefair: 'Bellefair', serif;
     &.process {
         @include background_image(process);
     }
+    &.menu {
+        @include background_image(menu);
+    }
+    &.gallery {
+        @include background_image(gallery);
+    }
     .header-content {
         padding-top:rem-calc(30);
         .top-section {
@@ -307,6 +313,184 @@ main.page-about {
                 line-height:rem-calc(38);
                 margin-top: rem-calc(30);
             }
+        }
+    }
+}
+/** Menu **/
+.page-menu {
+    @include xy-grid();
+    padding-bottom: 0;
+
+    .menu-description {
+        @include xy-cell();
+        @include breakpoint(large){
+            @include xy-cell(5);
+        }
+        p {
+            text-align:center;
+            line-height: rem-calc(50);
+        }
+    }
+
+    .menu-image {
+        @include xy-cell();
+        @include breakpoint(large){
+            @include xy-cell(7);
+        }
+        @include flex-align(center,bottom);
+        @include flex();
+    }
+}
+
+/**Menu Section **/
+
+
+.our-menu {
+    background-image:url(../img/menu.jpg);
+    @include padding(3, null, 3, null);
+    @include position(relative);
+    background-position: center center;
+    background-attachment: scroll;
+    @include breakpoint(large) {
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    h2{
+        color:$white;
+        @include font-bold(900);
+        @include text-transform(uppercase);
+        text-align:center;
+        font-size: rem-calc(20);
+        margin-bottom:rem-calc(40);
+        span{
+            @include display(table);
+            margin:0 auto;
+            font-size:rem-calc(30);
+        }
+    }
+    &:after {
+        content:'';
+        @include position(absolute, 0,0,0,0);
+        background-color: rgba(46,23,15,.89);
+    }
+    .container {
+        position: relative;
+        z-index: 10;
+    }
+    .menu-list {
+        @include xy-grid();
+        color: $white;
+        > div {
+            @include xy-cell();
+            @include breakpoint(medium) {
+                @include xy-cell(6);
+            }
+            h3 {
+                @include text-transform(uppercase);
+                @include font-bold(900);
+                text-align:center;
+                margin-bottom: rem-calc(40);
+            }
+        }
+    }
+}
+
+//product-list
+.product-list {
+    list-style:none;
+    margin:0;
+    li {
+        margin-bottom: rem-calc(20);
+        @include flex();
+        @include xy-grid();
+        .product {
+            @include xy-cell(8);
+            p.name {
+                @include text-transform(uppercase);
+                @include font-bold(900);
+                font-size: rem-calc(18);
+            }
+            p.description {
+                color:$secondary-color;
+                font-size:rem-calc(16);
+            }
+        }
+        .price {
+            @include xy-cell(4);
+            p {
+                text-align:right;
+                font-size: rem-calc(30);
+                @include font-bold(900);
+            }
+        }
+        p {
+            margin:0;
+        }
+    }
+}
+
+/** gallery **/
+.gallery-top {
+    margin-bottom: rem-calc(20);
+    @include breakpoint(medium) {
+        margin-bottom: rem-calc(5);
+    }
+    @include xy-grid();
+
+    .left-content {
+        @include xy-cell(1 of 4);
+        @include breakpoint(medium) {
+            @include xy-cell(1 of 4);
+        }
+    }
+    .right-content {
+        @include xy-cell(3 of 4);
+        @include breakpoint(small only) {
+            @include xy-cell(5 of 9);
+        }
+        @include xy-grid-collapse();
+        .right-container {
+            @include xy-grid();
+            .gallery-item {
+                @include xy-cell(4);
+                @include breakpoint(small only) {
+                    @include xy-cell(6);
+                }
+                @include xy-gutters(30, padding, bottom);
+                &.two-cols {
+                    @include xy-cell(8);
+                    @include breakpoint(small only) {
+                        @include xy-cell();
+                    }
+                }
+            }
+    
+        }
+
+    }
+}
+
+.gallery-bottom {
+    @include xy-grid();
+
+    > .gallery-item {
+        @include xy-cell(25%);
+        @include xy-grid-collapse();
+        @include xy-gutters(18, margin, left right);
+        &.two-cols {
+            @include xy-cell(50%);
+            @include xy-gutters(15, padding, right);
+        }
+    }
+    .right-content {
+        @include xy-cell(25%);
+        @include xy-grid-collapse();
+        @include xy-gutters(25, padding, left bottom right);
+        @include breakpoint(small only) {
+            @include xy-gutters();
+        }
+        .gallery-item {
+            margin-bottom: rem-calc(23);
         }
     }
 }
