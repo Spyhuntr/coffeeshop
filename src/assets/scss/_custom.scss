@@ -44,12 +44,16 @@ $bellefair: 'Bellefair', serif;
     &.process {
         @include background_image(process);
     }
-    &.menu {
+    &.menu-page {
         @include background_image(menu);
     }
     &.gallery {
         @include background_image(gallery);
     }
+    &.contact {
+        @include background_image(contact);
+    }
+
     .header-content {
         padding-top:rem-calc(30);
         .top-section {
@@ -165,6 +169,60 @@ $bellefair: 'Bellefair', serif;
 }
 .menu-out {
     @include mui-zoom(out, 1, .1, true, .5s, ease)
+}
+
+.reveal-in {
+    @include mui-fade();
+}
+
+.reveal-out {
+    @include mui-fade(out, 1, 0);
+}
+
+//Index Page - About
+.about-us-homepage {
+    margin-bottom: rem-calc(150);
+    @include breakpoint(medium) {
+        @include xy-cell(80%);
+        @include xy-cell-offset(10%);
+    }
+    p {
+        text-align: center;
+        line-height: rem-calc(40);
+        font-size: rem-calc(18);
+    }
+
+    .category-icons {
+        @include xy-grid();
+        .icon {
+            @include xy-cell();
+            @include breakpoint(medium) {
+                @include xy-cell(1 of 3);
+            }
+            height: rem-calc(260);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: rem-calc(120%);
+            @include flex();
+            @include flex-align(center, bottom);
+            
+            &.coffee {
+                background-image: url(../img/icon_coffee.svg);
+            }
+            &.dessert {
+                background-image: url(../img/icon_dessert.svg);
+            }
+            &.tea {
+                background-image: url(../img/icon_tea.svg);
+            }
+            h3 {
+                text-align: center;
+                font-family: $bellefair;
+                color: $primary-color;
+                font-size: rem-calc(38);
+            }
+        }
+    }
 }
 
 //footer
@@ -337,8 +395,8 @@ main.page-about {
         @include breakpoint(large){
             @include xy-cell(7);
         }
-        @include flex-align(center,bottom);
         @include flex();
+        @include flex-align(center,bottom);
     }
 }
 
@@ -492,5 +550,42 @@ main.page-about {
         .gallery-item {
             margin-bottom: rem-calc(23);
         }
+    }
+}
+
+/** Contact Us **/
+.page-contact {
+    background-image:url(../img/coffee_beans.jpg);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 60%;
+    @include xy-grid();
+    @include breakpoint(medium) {
+        background-size: 40%;
+    }
+    .reservation-form {
+        @include xy-cell();
+        @include breakpoint(medium) {
+            @include xy-cell(6);
+        }
+    }
+}
+.field-container {
+    label {
+        color: $black;
+        font-size:rem-calc(20);
+        @include font-bold();
+        @include text-transform(uppercase);
+    }
+    input, select {
+        border: rem-calc(5) solid $primary-color;
+        height: rem-calc(50);
+    }
+    .send_btn {
+        @include font-bold();
+        @include text-transform(uppercase);
+        font-size: rem-calc(18);
+        width: 100%;
+        height: auto;
     }
 }
