@@ -10,17 +10,19 @@ slogan: better beans, better coffee
         </h2>
 
         <div class="reservation-form">
-            <form method="post" id="contact-form">
+            <form method="post" id="contact-form" action="assets/php/send.php" data-abide novalidate>
                 <div class="field-container">
                     <label for="name">
                         Your Name:
-                        <input type="text" id="name" placeholder="Full Name" name="name">
+                        <input type="text" id="name" placeholder="Full Name" name="name" required>
+                        <span class="form-error">Error, the name field is mandatory!</span>
                     </label>
                 </div>
                 <div class="field-container">
                     <label for="phone">
                         Phone or Email:
-                        <input type="text" id="name" placeholder="Phone or Email" name="phone">
+                        <input type="text" id="name" placeholder="Email" name="email" required pattern="email">
+                        <span class="form-error">Error, the email field is mandatory!</span>
                     </label>
                 </div>
                 <div class="field-container">
@@ -48,7 +50,8 @@ slogan: better beans, better coffee
                 <div class="field-container">
                     <label for="when">
                         When:
-                        <input type="date" id="when" name="when">
+                        <input type="date" id="when" name="when" placeholder="DD/MM/YYYY" required pattern="date">
+                        <span class="form-error">Error, the date field is mandatory or the date format is wrong!</span>
                     </label>
                 </div>
                 <div class="field-container">
